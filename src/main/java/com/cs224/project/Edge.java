@@ -1,4 +1,4 @@
-package com.lyn.soot.project;
+package com.cs224.project;
 
 import soot.SootMethod;
 import soot.Unit;

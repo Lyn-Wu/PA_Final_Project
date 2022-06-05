@@ -1,4 +1,4 @@
-package com.lyn.soot.project;
+package com.cs224.project;
 
 import soot.*;
 import soot.tagkit.LineNumberTag;
@@ -19,6 +19,7 @@ public class StackAnalyzer {
 
     private int graphWalker(CallGraph cg, SootMethod v) {
         //  Return 0, may Safety, -1, Overflow
+        int stack_ovf = 0;
         visiting.replace(v, visited.get(v), true);
         totalStackSize += getStackSizeOf(v);
 
@@ -32,6 +33,7 @@ public class StackAnalyzer {
         //      if (v == sootMethod && pred(v) != sootMethod) {
         //          System.out.println("[INFO] Detect cycle found, form the calling stack when check: " + sootMethod.getName()
         //                          + " at line " + sootMethod.getTag(LineNumberTag.IDENTIFIER));
+        //          stack_ovf = -1;
         //      }
         //      if (!visited.get(v)) {
         //          set sootMethod parent
@@ -41,7 +43,7 @@ public class StackAnalyzer {
         //
         visited.replace(v, visited.get(v), true);
         visiting.replace(v, visiting.get(v), false);
-        return 0;
+        return stack_ovf;
     }
 
     public void doStackCheck(CallGraph cg) throws InterruptedException {

@@ -1,4 +1,4 @@
-package com.lyn.soot.project;
+package com.cs224.project;
 
 import com.lyn.soot.InterBaseTest;
 import soot.Transformer;
