@@ -1,0 +1,136 @@
+// Call graph generator. Jun  7 2022 build, written by Kuoping Hsu, MIT license
+// https://github.com/kuopinghsu/callgraph-gen
+graph: {
+  x: 450
+  y: 30
+  width:  550
+  height: 500
+  color: lightcyan
+  stretch: 4
+  shrink: 10
+
+  node: {
+    title: "exit:0"
+    label: "exit\nPROG: 30\nSTACK: 16"
+    color: white
+  }
+
+  edge: { sourcename: "exit:0" targetname: "__call_exitprocs:0" }
+  edge: { sourcename: "exit:0" targetname: "__unknown__:0" }
+  edge: { sourcename: "exit:0" targetname: "_exit:0" }
+
+  node: {
+    title: "__call_exitprocs:0"
+    label: "__call_exitprocs\nPROG: 194\nSTACK: 80"
+    color: white
+  }
+
+  edge: { sourcename: "__call_exitprocs:0" targetname: "__unknown__:0" }
+
+  node: {
+    title: "__unknown__:0"
+    label: "__unknown__\nPROG: 0\nSTACK: 0"
+    color: lightgrey
+  }
+
+  node: {
+    title: "_exit:0"
+    label: "_exit\nPROG: 34\nSTACK: 16"
+    color: white
+  }
+
+  edge: { sourcename: "_exit:0" targetname: "__errno:0" }
+
+  node: {
+    title: "register_fini:0"
+    label: "register_fini\nPROG: 16\nSTACK: 0"
+    color: white
+  }
+
+  edge: { sourcename: "register_fini:0" targetname: "atexit:0" }
+
+  node: {
+    title: "atexit:0"
+    label: "atexit\nPROG: 10\nSTACK: 0"
+    color: white
+  }
+
+  edge: { sourcename: "atexit:0" targetname: "__register_exitproc:0" }
+
+  node: {
+    title: "_start:0"
+    label: "_start\nPROG: 62\nSTACK: 0"
+    color: white
+  }
+
+  edge: { sourcename: "_start:0" targetname: "memset:0" }
+  edge: { sourcename: "_start:0" targetname: "atexit:0" }
+  edge: { sourcename: "_start:0" targetname: "__libc_init_array:0" }
+  edge: { sourcename: "_start:0" targetname: "main:0" }
+  edge: { sourcename: "_start:0" targetname: "exit:0" }
+
+  node: {
+    title: "memset:0"
+    label: "memset\nPROG: 170\nSTACK: 0"
+    color: white
+  }
+
+  edge: { sourcename: "memset:0" targetname: "__unknown__:0" }
+
+  node: {
+    title: "__libc_init_array:0"
+    label: "__libc_init_array\nPROG: 106\nSTACK: 32"
+    color: white
+  }
+
+  edge: { sourcename: "__libc_init_array:0" targetname: "__unknown__:0" }
+
+  node: {
+    title: "main:0"
+    label: "main\nPROG: 28\nSTACK: 16"
+    color: white
+  }
+
+  edge: { sourcename: "main:0" targetname: "foo:0" }
+
+  node: {
+    title: "__do_global_dtors_aux:0"
+    label: "__do_global_dtors_aux\nPROG: 46\nSTACK: 16"
+    color: white
+  }
+
+  edge: { sourcename: "__do_global_dtors_aux:0" targetname: "__unknown__:0" }
+
+  node: {
+    title: "frame_dummy:0"
+    label: "frame_dummy\nPROG: 26\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "foo:0"
+    label: "foo\nPROG: 80\nSTACK: 48"
+    color: white
+  }
+
+  node: {
+    title: "__libc_fini_array:0"
+    label: "__libc_fini_array\nPROG: 52\nSTACK: 32"
+    color: white
+  }
+
+  edge: { sourcename: "__libc_fini_array:0" targetname: "__unknown__:0" }
+
+  node: {
+    title: "__register_exitproc:0"
+    label: "__register_exitproc\nPROG: 118\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "__errno:0"
+    label: "__errno\nPROG: 4\nSTACK: 0"
+    color: white
+  }
+
+}

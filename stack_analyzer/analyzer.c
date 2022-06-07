@@ -1486,23 +1486,25 @@ int graph_walker(NODE *g, LIST *u) {
     NODE *parent = u->child->parent;
     LIST *v= parent->list;
     for(;v!=NULL; v = v->next) {
-        if (v->child) {
-            if (v->child->visiting && u->child->processor != v->child) {
-                errno = CYCLE_FOUND;
-                break;
-            }
-
-            if (v->child != NULL ) {
-                v->child->processor = u->child;
-                if (v->child->list) {
-                    errno = graph_walker(g, v->child->list);
-
-                    if (errno == CYCLE_FOUND || errno == STACK_OVERFLOW) {
+        //if(v->child)
+           // if (v->child != u->child)
+                if (v->child) {
+                    if (v->child->visiting && u->child->processor != v->child) {
+                        errno = CYCLE_FOUND;
                         break;
                     }
+
+                    if (v->child != NULL ) {
+                        v->child->processor = u->child;
+                        if (v->child->list) {
+                            errno = graph_walker(g, v->child->list);
+
+                            if (errno == CYCLE_FOUND || errno == STACK_OVERFLOW) {
+                                break;
+                            }
+                        }
+                    }
                 }
-            }
-        }
     }
     
     u->child->visited = 1;
