@@ -1,0 +1,92 @@
+// Call graph generator. Jun  6 2022 build, written by Kuoping Hsu, MIT license
+// https://github.com/kuopinghsu/callgraph-gen
+digraph callgraph {
+  graph [ rankdir = "LR" ];
+  node [ fontsize = "16" shape = "record" style = "filled" ];
+  edge [ color = "black" ];
+
+  _start_0 [ label = "_start|PROG: 292|STACK: 0" fillcolor = "white"];
+  _start_0 -> _init_0;
+
+  _init_0 [ label = "_init|PROG: 172|STACK: 176" fillcolor = "white"];
+  _init_0 -> memcpy_0;
+  _init_0 -> memset_0;
+  _init_0 -> thread_entry_0;
+  _init_0 -> main_0;
+  _init_0 -> tohost_exit_0;
+  _init_0 -> sprintf_0;
+  _init_0 -> printstr_0;
+
+  trap_entry_0 [ label = "trap_entry|PROG: 158|STACK: 272" fillcolor = "white"];
+  trap_entry_0 -> handle_trap_0;
+
+  handle_trap_0 [ label = "handle_trap|PROG: 16|STACK: 0" fillcolor = "white"];
+  Proc_2_0 [ label = "Proc_2|PROG: 38|STACK: 0" fillcolor = "white"];
+  Proc_3_0 [ label = "Proc_3|PROG: 32|STACK: 0" fillcolor = "white"];
+  Proc_3_0 -> Proc_7_0;
+
+  Proc_7_0 [ label = "Proc_7|PROG: 8|STACK: 0" fillcolor = "white"];
+  Proc_1_0 [ label = "Proc_1|PROG: 168|STACK: 32" fillcolor = "white"];
+  Proc_1_0 -> Proc_3_0;
+  Proc_1_0 -> Proc_6_0;
+  Proc_1_0 -> Proc_7_0;
+
+  Proc_6_0 [ label = "Proc_6|PROG: 112|STACK: 32" fillcolor = "white"];
+  Proc_6_0 -> Func_3_0;
+
+  Proc_4_0 [ label = "Proc_4|PROG: 44|STACK: 0" fillcolor = "white"];
+  Proc_5_0 [ label = "Proc_5|PROG: 22|STACK: 0" fillcolor = "white"];
+  Proc_8_0 [ label = "Proc_8|PROG: 74|STACK: 0" fillcolor = "white"];
+  Func_1_0 [ label = "Func_1|PROG: 28|STACK: 0" fillcolor = "white"];
+  Func_2_0 [ label = "Func_2|PROG: 66|STACK: 32" fillcolor = "white"];
+  Func_2_0 -> Func_1_0;
+  Func_2_0 -> strcmp_0;
+
+  strcmp_0 [ label = "strcmp|PROG: 30|STACK: 0" fillcolor = "white"];
+  Func_3_0 [ label = "Func_3|PROG: 8|STACK: 0" fillcolor = "white"];
+  debug_printf_0 [ label = "debug_printf|PROG: 20|STACK: 64" fillcolor = "white"];
+  vprintfmt_0 [ label = "vprintfmt|PROG: 744|STACK: 352" fillcolor = "white"];
+  vprintfmt_0 -> __unknown___0;
+
+  __unknown___0 [ label = "__unknown__|PROG: 0|STACK: 0" fillcolor = "lightgray"];
+  sprintf_putch.3143_0 [ label = "sprintf_putch.3143|PROG: 14|STACK: 0" fillcolor = "white"];
+  putchar_0 [ label = "putchar|PROG: 118|STACK: 112" fillcolor = "white"];
+  setStats_0 [ label = "setStats|PROG: 78|STACK: 0" fillcolor = "white"];
+  tohost_exit_0 [ label = "tohost_exit|PROG: 18|STACK: 0" fillcolor = "white"];
+  exit_0 [ label = "exit|PROG: 8|STACK: 16" fillcolor = "white"];
+  exit_0 -> tohost_exit_0;
+
+  abort_0 [ label = "abort|PROG: 14|STACK: 0" fillcolor = "white"];
+  printstr_0 [ label = "printstr|PROG: 88|STACK: 112" fillcolor = "white"];
+  thread_entry_0 [ label = "thread_entry|PROG: 6|STACK: 0" fillcolor = "white"];
+  printhex_0 [ label = "printhex|PROG: 70|STACK: 48" fillcolor = "white"];
+  printhex_0 -> printstr_0;
+
+  printf_0 [ label = "printf|PROG: 50|STACK: 96" fillcolor = "white"];
+  printf_0 -> vprintfmt_0;
+
+  sprintf_0 [ label = "sprintf|PROG: 64|STACK: 96" fillcolor = "white"];
+  sprintf_0 -> vprintfmt_0;
+
+  memcpy_0 [ label = "memcpy|PROG: 66|STACK: 0" fillcolor = "white"];
+  memset_0 [ label = "memset|PROG: 70|STACK: 0" fillcolor = "white"];
+  main_0 [ label = "main|PROG: 1780|STACK: 352" fillcolor = "white"];
+  main_0 -> printf_0;
+  main_0 -> setStats_0;
+  main_0 -> Proc_5_0;
+  main_0 -> Proc_4_0;
+  main_0 -> Func_2_0;
+  main_0 -> Proc_7_0;
+  main_0 -> Proc_8_0;
+  main_0 -> Proc_1_0;
+  main_0 -> Func_1_0;
+  main_0 -> Proc_6_0;
+  main_0 -> Proc_2_0;
+  main_0 -> printstr_0;
+
+  strlen_0 [ label = "strlen|PROG: 26|STACK: 0" fillcolor = "white"];
+  strnlen_0 [ label = "strnlen|PROG: 44|STACK: 0" fillcolor = "white"];
+  strcpy_0 [ label = "strcpy|PROG: 18|STACK: 0" fillcolor = "white"];
+  atol_0 [ label = "atol|PROG: 98|STACK: 0" fillcolor = "white"];
+
+}

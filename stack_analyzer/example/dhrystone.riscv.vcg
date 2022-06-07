@@ -1,0 +1,280 @@
+// Call graph generator. Jun  7 2022 build, written by Kuoping Hsu, MIT license
+// https://github.com/kuopinghsu/callgraph-gen
+graph: {
+  x: 450
+  y: 30
+  width:  550
+  height: 500
+  color: lightcyan
+  stretch: 4
+  shrink: 10
+
+  node: {
+    title: "_start:0"
+    label: "_start\nPROG: 292\nSTACK: 0"
+    color: white
+  }
+
+  edge: { sourcename: "_start:0" targetname: "_init:0" }
+
+  node: {
+    title: "_init:0"
+    label: "_init\nPROG: 172\nSTACK: 176"
+    color: white
+  }
+
+  edge: { sourcename: "_init:0" targetname: "memcpy:0" }
+  edge: { sourcename: "_init:0" targetname: "memset:0" }
+  edge: { sourcename: "_init:0" targetname: "thread_entry:0" }
+  edge: { sourcename: "_init:0" targetname: "main:0" }
+  edge: { sourcename: "_init:0" targetname: "tohost_exit:0" }
+  edge: { sourcename: "_init:0" targetname: "sprintf:0" }
+  edge: { sourcename: "_init:0" targetname: "printstr:0" }
+
+  node: {
+    title: "trap_entry:0"
+    label: "trap_entry\nPROG: 158\nSTACK: 272"
+    color: white
+  }
+
+  edge: { sourcename: "trap_entry:0" targetname: "handle_trap:0" }
+
+  node: {
+    title: "handle_trap:0"
+    label: "handle_trap\nPROG: 16\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "Proc_2:0"
+    label: "Proc_2\nPROG: 38\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "Proc_3:0"
+    label: "Proc_3\nPROG: 32\nSTACK: 0"
+    color: white
+  }
+
+  edge: { sourcename: "Proc_3:0" targetname: "Proc_7:0" }
+
+  node: {
+    title: "Proc_7:0"
+    label: "Proc_7\nPROG: 8\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "Proc_1:0"
+    label: "Proc_1\nPROG: 168\nSTACK: 32"
+    color: white
+  }
+
+  edge: { sourcename: "Proc_1:0" targetname: "Proc_3:0" }
+  edge: { sourcename: "Proc_1:0" targetname: "Proc_6:0" }
+  edge: { sourcename: "Proc_1:0" targetname: "Proc_7:0" }
+
+  node: {
+    title: "Proc_6:0"
+    label: "Proc_6\nPROG: 112\nSTACK: 32"
+    color: white
+  }
+
+  edge: { sourcename: "Proc_6:0" targetname: "Func_3:0" }
+
+  node: {
+    title: "Proc_4:0"
+    label: "Proc_4\nPROG: 44\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "Proc_5:0"
+    label: "Proc_5\nPROG: 22\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "Proc_8:0"
+    label: "Proc_8\nPROG: 74\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "Func_1:0"
+    label: "Func_1\nPROG: 28\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "Func_2:0"
+    label: "Func_2\nPROG: 66\nSTACK: 32"
+    color: white
+  }
+
+  edge: { sourcename: "Func_2:0" targetname: "Func_1:0" }
+  edge: { sourcename: "Func_2:0" targetname: "strcmp:0" }
+
+  node: {
+    title: "strcmp:0"
+    label: "strcmp\nPROG: 30\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "Func_3:0"
+    label: "Func_3\nPROG: 8\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "debug_printf:0"
+    label: "debug_printf\nPROG: 20\nSTACK: 64"
+    color: white
+  }
+
+  node: {
+    title: "vprintfmt:0"
+    label: "vprintfmt\nPROG: 744\nSTACK: 352"
+    color: white
+  }
+
+  edge: { sourcename: "vprintfmt:0" targetname: "__unknown__:0" }
+
+  node: {
+    title: "__unknown__:0"
+    label: "__unknown__\nPROG: 0\nSTACK: 0"
+    color: lightgrey
+  }
+
+  node: {
+    title: "sprintf_putch.3143:0"
+    label: "sprintf_putch.3143\nPROG: 14\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "putchar:0"
+    label: "putchar\nPROG: 118\nSTACK: 112"
+    color: white
+  }
+
+  node: {
+    title: "setStats:0"
+    label: "setStats\nPROG: 78\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "tohost_exit:0"
+    label: "tohost_exit\nPROG: 18\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "exit:0"
+    label: "exit\nPROG: 8\nSTACK: 16"
+    color: white
+  }
+
+  edge: { sourcename: "exit:0" targetname: "tohost_exit:0" }
+
+  node: {
+    title: "abort:0"
+    label: "abort\nPROG: 14\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "printstr:0"
+    label: "printstr\nPROG: 88\nSTACK: 112"
+    color: white
+  }
+
+  node: {
+    title: "thread_entry:0"
+    label: "thread_entry\nPROG: 6\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "printhex:0"
+    label: "printhex\nPROG: 70\nSTACK: 48"
+    color: white
+  }
+
+  edge: { sourcename: "printhex:0" targetname: "printstr:0" }
+
+  node: {
+    title: "printf:0"
+    label: "printf\nPROG: 50\nSTACK: 96"
+    color: white
+  }
+
+  edge: { sourcename: "printf:0" targetname: "vprintfmt:0" }
+
+  node: {
+    title: "sprintf:0"
+    label: "sprintf\nPROG: 64\nSTACK: 96"
+    color: white
+  }
+
+  edge: { sourcename: "sprintf:0" targetname: "vprintfmt:0" }
+
+  node: {
+    title: "memcpy:0"
+    label: "memcpy\nPROG: 66\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "memset:0"
+    label: "memset\nPROG: 70\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "main:0"
+    label: "main\nPROG: 1780\nSTACK: 352"
+    color: white
+  }
+
+  edge: { sourcename: "main:0" targetname: "printf:0" }
+  edge: { sourcename: "main:0" targetname: "setStats:0" }
+  edge: { sourcename: "main:0" targetname: "Proc_5:0" }
+  edge: { sourcename: "main:0" targetname: "Proc_4:0" }
+  edge: { sourcename: "main:0" targetname: "Func_2:0" }
+  edge: { sourcename: "main:0" targetname: "Proc_7:0" }
+  edge: { sourcename: "main:0" targetname: "Proc_8:0" }
+  edge: { sourcename: "main:0" targetname: "Proc_1:0" }
+  edge: { sourcename: "main:0" targetname: "Func_1:0" }
+  edge: { sourcename: "main:0" targetname: "Proc_6:0" }
+  edge: { sourcename: "main:0" targetname: "Proc_2:0" }
+  edge: { sourcename: "main:0" targetname: "printstr:0" }
+
+  node: {
+    title: "strlen:0"
+    label: "strlen\nPROG: 26\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "strnlen:0"
+    label: "strnlen\nPROG: 44\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "strcpy:0"
+    label: "strcpy\nPROG: 18\nSTACK: 0"
+    color: white
+  }
+
+  node: {
+    title: "atol:0"
+    label: "atol\nPROG: 98\nSTACK: 0"
+    color: white
+  }
+
+}

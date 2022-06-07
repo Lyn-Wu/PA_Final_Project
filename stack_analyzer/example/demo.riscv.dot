@@ -1,0 +1,591 @@
+// Call graph generator. Jun  7 2022 build, written by Kuoping Hsu, MIT license
+// https://github.com/kuopinghsu/callgraph-gen
+digraph callgraph {
+  graph [ rankdir = "LR" ];
+  node [ fontsize = "16" shape = "record" style = "filled" ];
+  edge [ color = "black" ];
+
+  exit_0 [ label = "exit|PROG: 30|STACK: 16" fillcolor = "white"];
+  exit_0 -> __call_exitprocs_0;
+  exit_0 -> __unknown___0;
+  exit_0 -> _exit_0;
+
+  __call_exitprocs_0 [ label = "__call_exitprocs|PROG: 194|STACK: 80" fillcolor = "white"];
+  __call_exitprocs_0 -> __unknown___0;
+
+  __unknown___0 [ label = "__unknown__|PROG: 0|STACK: 0" fillcolor = "lightgray"];
+  _exit_0 [ label = "_exit|PROG: 34|STACK: 16" fillcolor = "white"];
+  _exit_0 -> __errno_0;
+
+  register_fini_0 [ label = "register_fini|PROG: 18|STACK: 0" fillcolor = "white"];
+  register_fini_0 -> atexit_0;
+
+  atexit_0 [ label = "atexit|PROG: 12|STACK: 0" fillcolor = "white"];
+  atexit_0 -> __register_exitproc_0;
+
+  _start_0 [ label = "_start|PROG: 66|STACK: 0" fillcolor = "white"];
+  _start_0 -> memset_0;
+  _start_0 -> atexit_0;
+  _start_0 -> __libc_init_array_0;
+  _start_0 -> main_0;
+  _start_0 -> exit_0;
+
+  memset_0 [ label = "memset|PROG: 170|STACK: 0" fillcolor = "white"];
+  memset_0 -> __unknown___0;
+
+  __libc_init_array_0 [ label = "__libc_init_array|PROG: 106|STACK: 32" fillcolor = "white"];
+  __libc_init_array_0 -> __unknown___0;
+
+  main_0 [ label = "main|PROG: 42|STACK: 16" fillcolor = "white"];
+  main_0 -> foo_0;
+  main_0 -> printf_0;
+
+  __do_global_dtors_aux_0 [ label = "__do_global_dtors_aux|PROG: 46|STACK: 16" fillcolor = "white"];
+  __do_global_dtors_aux_0 -> __unknown___0;
+
+  frame_dummy_0 [ label = "frame_dummy|PROG: 26|STACK: 0" fillcolor = "white"];
+  foo_0 [ label = "foo|PROG: 62|STACK: 32" fillcolor = "white"];
+  foo_0 -> foo_0;
+
+  printf_0 [ label = "printf|PROG: 44|STACK: 96" fillcolor = "white"];
+  printf_0 -> _vfprintf_r_0;
+
+  _printf_r_0 [ label = "_printf_r|PROG: 34|STACK: 80" fillcolor = "white"];
+  _printf_r_0 -> _vfprintf_r_0;
+
+  _vfprintf_r_0 [ label = "_vfprintf_r|PROG: 6808|STACK: 640" fillcolor = "white"];
+  _vfprintf_r_0 -> _localeconv_r_0;
+  _vfprintf_r_0 -> strlen_0;
+  _vfprintf_r_0 -> _free_r_0;
+  _vfprintf_r_0 -> __swsetup_r_0;
+  _vfprintf_r_0 -> __sbprintf_0;
+  _vfprintf_r_0 -> __sprint_r_0;
+  _vfprintf_r_0 -> _ldcheck_0;
+  _vfprintf_r_0 -> __eqtf2_0;
+  _vfprintf_r_0 -> __sinit_0;
+  _vfprintf_r_0 -> memchr_0;
+  _vfprintf_r_0 -> __extenddftf2_0;
+  _vfprintf_r_0 -> strncpy_0;
+  _vfprintf_r_0 -> _ldtoa_r_0;
+  _vfprintf_r_0 -> __letf2_0;
+  _vfprintf_r_0 -> _malloc_r_0;
+  _vfprintf_r_0 -> __trunctfdf2_0;
+  _vfprintf_r_0 -> frexp_0;
+  _vfprintf_r_0 -> __multf3_0;
+  _vfprintf_r_0 -> __fixtfsi_0;
+  _vfprintf_r_0 -> __floatsitf_0;
+  _vfprintf_r_0 -> __subtf3_0;
+  _vfprintf_r_0 -> __getf2_0;
+
+  _localeconv_r_0 [ label = "_localeconv_r|PROG: 6|STACK: 0" fillcolor = "white"];
+  strlen_0 [ label = "strlen|PROG: 144|STACK: 0" fillcolor = "white"];
+  _free_r_0 [ label = "_free_r|PROG: 594|STACK: 32" fillcolor = "white"];
+  _free_r_0 -> __malloc_lock_0;
+  _free_r_0 -> __malloc_unlock_0;
+  _free_r_0 -> _malloc_trim_r_0;
+
+  __swsetup_r_0 [ label = "__swsetup_r|PROG: 248|STACK: 32" fillcolor = "white"];
+  __swsetup_r_0 -> __sinit_0;
+  __swsetup_r_0 -> __smakebuf_r_0;
+  __swsetup_r_0 -> _free_r_0;
+
+  __sbprintf_0 [ label = "__sbprintf|PROG: 148|STACK: 1232" fillcolor = "white"];
+  __sbprintf_0 -> _vfprintf_r_0;
+  __sbprintf_0 -> _fflush_r_0;
+  __sbprintf_0 -> _vfiprintf_r_0;
+
+  __sprint_r_0 [ label = "__sprint_r|PROG: 14|STACK: 0" fillcolor = "white"];
+  __sprint_r_0 -> __sprint_r_part_0_0;
+
+  _ldcheck_0 [ label = "_ldcheck|PROG: 66|STACK: 64" fillcolor = "white"];
+  _ldcheck_0 -> e113toe_isra_0_0;
+
+  __eqtf2_0 [ label = "__eqtf2|PROG: 160|STACK: 0" fillcolor = "white"];
+  __sinit_0 [ label = "__sinit|PROG: 8|STACK: 0" fillcolor = "white"];
+  __sinit_0 -> __sinit_part_0_0;
+
+  memchr_0 [ label = "memchr|PROG: 142|STACK: 0" fillcolor = "white"];
+  __extenddftf2_0 [ label = "__extenddftf2|PROG: 196|STACK: 32" fillcolor = "white"];
+  __extenddftf2_0 -> __clzdi2_0;
+
+  strncpy_0 [ label = "strncpy|PROG: 114|STACK: 0" fillcolor = "white"];
+  _ldtoa_r_0 [ label = "_ldtoa_r|PROG: 3600|STACK: 624" fillcolor = "white"];
+  _ldtoa_r_0 -> _Bfree_0;
+  _ldtoa_r_0 -> e113toe_isra_0_0;
+  _ldtoa_r_0 -> ecmp_0;
+  _ldtoa_r_0 -> emul_0;
+  _ldtoa_r_0 -> ediv_0;
+  _ldtoa_r_0 -> emovi_0;
+  _ldtoa_r_0 -> eiremain_0;
+  _ldtoa_r_0 -> sprintf_0;
+  _ldtoa_r_0 -> _Balloc_0;
+  _ldtoa_r_0 -> strcpy_0;
+  _ldtoa_r_0 -> eshift_part_0_0;
+  _ldtoa_r_0 -> emdnorm_0;
+  _ldtoa_r_0 -> emovo_constprop_0_0;
+  _ldtoa_r_0 -> eshdn1_0;
+  _ldtoa_r_0 -> __assert_func_0;
+
+  __letf2_0 [ label = "__letf2|PROG: 166|STACK: 0" fillcolor = "white"];
+  _malloc_r_0 [ label = "_malloc_r|PROG: 1560|STACK: 96" fillcolor = "white"];
+  _malloc_r_0 -> __malloc_lock_0;
+  _malloc_r_0 -> __malloc_unlock_0;
+  _malloc_r_0 -> _sbrk_r_0;
+  _malloc_r_0 -> _free_r_0;
+
+  __trunctfdf2_0 [ label = "__trunctfdf2|PROG: 544|STACK: 0" fillcolor = "white"];
+  frexp_0 [ label = "frexp|PROG: 124|STACK: 0" fillcolor = "white"];
+  __multf3_0 [ label = "__multf3|PROG: 1578|STACK: 96" fillcolor = "white"];
+  __multf3_0 -> __clzdi2_0;
+
+  __fixtfsi_0 [ label = "__fixtfsi|PROG: 146|STACK: 0" fillcolor = "white"];
+  __floatsitf_0 [ label = "__floatsitf|PROG: 86|STACK: 32" fillcolor = "white"];
+  __floatsitf_0 -> __clzdi2_0;
+
+  __subtf3_0 [ label = "__subtf3|PROG: 2184|STACK: 48" fillcolor = "white"];
+  __subtf3_0 -> __clzdi2_0;
+
+  __getf2_0 [ label = "__getf2|PROG: 166|STACK: 0" fillcolor = "white"];
+  vfprintf_0 [ label = "vfprintf|PROG: 16|STACK: 0" fillcolor = "white"];
+  vfprintf_0 -> _vfprintf_r_0;
+
+  _fflush_r_0 [ label = "_fflush_r|PROG: 54|STACK: 32" fillcolor = "white"];
+  _fflush_r_0 -> __sinit_0;
+  _fflush_r_0 -> __sflush_r_0;
+
+  __smakebuf_r_0 [ label = "__smakebuf_r|PROG: 276|STACK: 160" fillcolor = "white"];
+  __smakebuf_r_0 -> _fstat_r_0;
+  __smakebuf_r_0 -> _malloc_r_0;
+  __smakebuf_r_0 -> _isatty_r_0;
+
+  __sflush_r_0 [ label = "__sflush_r|PROG: 402|STACK: 48" fillcolor = "white"];
+  __sflush_r_0 -> __unknown___0;
+  __sflush_r_0 -> _free_r_0;
+
+  fflush_0 [ label = "fflush|PROG: 74|STACK: 32" fillcolor = "white"];
+  fflush_0 -> __sflush_r_0;
+  fflush_0 -> __sinit_0;
+  fflush_0 -> _fwalk_reent_0;
+
+  _fwalk_reent_0 [ label = "_fwalk_reent|PROG: 138|STACK: 80" fillcolor = "white"];
+  _fwalk_reent_0 -> __unknown___0;
+
+  __fp_lock_0 [ label = "__fp_lock|PROG: 4|STACK: 0" fillcolor = "white"];
+  _cleanup_r_0 [ label = "_cleanup_r|PROG: 8|STACK: 0" fillcolor = "white"];
+  _cleanup_r_0 -> _fwalk_reent_0;
+
+  __fp_unlock_0 [ label = "__fp_unlock|PROG: 4|STACK: 0" fillcolor = "white"];
+  __sinit.part.0_0 [ label = "__sinit.part.0|PROG: 286|STACK: 64" fillcolor = "white"];
+  __sinit.part.0_0 -> memset_0;
+
+  __sfmoreglue_0 [ label = "__sfmoreglue|PROG: 72|STACK: 32" fillcolor = "white"];
+  __sfmoreglue_0 -> _malloc_r_0;
+  __sfmoreglue_0 -> memset_0;
+
+  __sfp_0 [ label = "__sfp|PROG: 218|STACK: 48" fillcolor = "white"];
+  __sfp_0 -> memset_0;
+  __sfp_0 -> __sinit_part_0_0;
+  __sfp_0 -> _malloc_r_0;
+
+  __sinit_part_0_0 [ label = "__sinit_part_0|PROG: 0|STACK: 0" fillcolor = "lightgray"];
+  _cleanup_0 [ label = "_cleanup|PROG: 12|STACK: 0" fillcolor = "white"];
+  _cleanup_0 -> _fwalk_reent_0;
+
+  __sfp_lock_acquire_0 [ label = "__sfp_lock_acquire|PROG: 2|STACK: 0" fillcolor = "white"];
+  __sfp_lock_release_0 [ label = "__sfp_lock_release|PROG: 2|STACK: 0" fillcolor = "white"];
+  __sinit_lock_acquire_0 [ label = "__sinit_lock_acquire|PROG: 2|STACK: 0" fillcolor = "white"];
+  __sinit_lock_release_0 [ label = "__sinit_lock_release|PROG: 2|STACK: 0" fillcolor = "white"];
+  __fp_lock_all_0 [ label = "__fp_lock_all|PROG: 12|STACK: 0" fillcolor = "white"];
+  __fp_lock_all_0 -> _fwalk_0;
+
+  _fwalk_0 [ label = "_fwalk|PROG: 130|STACK: 80" fillcolor = "white"];
+  _fwalk_0 -> __unknown___0;
+
+  __fp_unlock_all_0 [ label = "__fp_unlock_all|PROG: 12|STACK: 0" fillcolor = "white"];
+  __fp_unlock_all_0 -> _fwalk_0;
+
+  __libc_fini_array_0 [ label = "__libc_fini_array|PROG: 52|STACK: 32" fillcolor = "white"];
+  __libc_fini_array_0 -> __unknown___0;
+
+  _malloc_trim_r_0 [ label = "_malloc_trim_r|PROG: 212|STACK: 48" fillcolor = "white"];
+  _malloc_trim_r_0 -> __malloc_lock_0;
+  _malloc_trim_r_0 -> _sbrk_r_0;
+  _malloc_trim_r_0 -> __malloc_unlock_0;
+
+  __malloc_lock_0 [ label = "__malloc_lock|PROG: 2|STACK: 0" fillcolor = "white"];
+  _sbrk_r_0 [ label = "_sbrk_r|PROG: 54|STACK: 32" fillcolor = "white"];
+  _sbrk_r_0 -> _sbrk_0;
+
+  __malloc_unlock_0 [ label = "__malloc_unlock|PROG: 2|STACK: 0" fillcolor = "white"];
+  eshdn1_0 [ label = "eshdn1|PROG: 76|STACK: 0" fillcolor = "white"];
+  eshup1_0 [ label = "eshup1|PROG: 80|STACK: 0" fillcolor = "white"];
+  m16m_0 [ label = "m16m|PROG: 104|STACK: 32" fillcolor = "white"];
+  emovo.constprop.0_0 [ label = "emovo.constprop.0|PROG: 140|STACK: 0" fillcolor = "white"];
+  enormlz_0 [ label = "enormlz|PROG: 266|STACK: 32" fillcolor = "white"];
+  enormlz_0 -> eshup1_0;
+  enormlz_0 -> eshdn1_0;
+
+  eshift.part.0_0 [ label = "eshift.part.0|PROG: 338|STACK: 48" fillcolor = "white"];
+  eshift.part.0_0 -> eshup1_0;
+  eshift.part.0_0 -> eshdn1_0;
+
+  emovi_0 [ label = "emovi|PROG: 150|STACK: 0" fillcolor = "white"];
+  ecmp_0 [ label = "ecmp|PROG: 228|STACK: 80" fillcolor = "white"];
+  ecmp_0 -> emovi_0;
+
+  emdnorm_0 [ label = "emdnorm|PROG: 774|STACK: 80" fillcolor = "white"];
+  emdnorm_0 -> enormlz_0;
+  emdnorm_0 -> eshup1_0;
+  emdnorm_0 -> eshift_part_0_0;
+  emdnorm_0 -> eshdn1_0;
+
+  eshift_part_0_0 [ label = "eshift_part_0|PROG: 0|STACK: 0" fillcolor = "lightgray"];
+  eiremain_0 [ label = "eiremain|PROG: 242|STACK: 96" fillcolor = "white"];
+  eiremain_0 -> enormlz_0;
+  eiremain_0 -> eshup1_0;
+  eiremain_0 -> emdnorm_0;
+
+  e113toe.isra.0_0 [ label = "e113toe.isra.0|PROG: 252|STACK: 48" fillcolor = "white"];
+  e113toe.isra.0_0 -> emovo_constprop_0_0;
+  e113toe.isra.0_0 -> eshift_part_0_0;
+
+  emovo_constprop_0_0 [ label = "emovo_constprop_0|PROG: 0|STACK: 0" fillcolor = "lightgray"];
+  ediv_0 [ label = "ediv|PROG: 1052|STACK: 224" fillcolor = "white"];
+  ediv_0 -> ecmp_0;
+  ediv_0 -> emovi_0;
+  ediv_0 -> enormlz_0;
+  ediv_0 -> eshdn1_0;
+  ediv_0 -> m16m_0;
+  ediv_0 -> emdnorm_0;
+  ediv_0 -> emovo_constprop_0_0;
+
+  emul_0 [ label = "emul|PROG: 900|STACK: 192" fillcolor = "white"];
+  emul_0 -> ecmp_0;
+  emul_0 -> emovi_0;
+  emul_0 -> enormlz_0;
+  emul_0 -> emdnorm_0;
+  emul_0 -> emovo_constprop_0_0;
+  emul_0 -> m16m_0;
+
+  _Bfree_0 [ label = "_Bfree|PROG: 18|STACK: 0" fillcolor = "white"];
+  e113toe_isra_0_0 [ label = "e113toe_isra_0|PROG: 0|STACK: 0" fillcolor = "lightgray"];
+  sprintf_0 [ label = "sprintf|PROG: 74|STACK: 256" fillcolor = "white"];
+  sprintf_0 -> _svfprintf_r_0;
+
+  _Balloc_0 [ label = "_Balloc|PROG: 98|STACK: 32" fillcolor = "white"];
+  _Balloc_0 -> _calloc_r_0;
+
+  strcpy_0 [ label = "strcpy|PROG: 156|STACK: 0" fillcolor = "white"];
+  __assert_func_0 [ label = "__assert_func|PROG: 60|STACK: 16" fillcolor = "white"];
+  __assert_func_0 -> fiprintf_0;
+  __assert_func_0 -> abort_0;
+
+  __localeconv_l_0 [ label = "__localeconv_l|PROG: 6|STACK: 0" fillcolor = "white"];
+  localeconv_0 [ label = "localeconv|PROG: 6|STACK: 0" fillcolor = "white"];
+  _setlocale_r_0 [ label = "_setlocale_r|PROG: 76|STACK: 32" fillcolor = "white"];
+  _setlocale_r_0 -> strcmp_0;
+
+  strcmp_0 [ label = "strcmp|PROG: 234|STACK: 0" fillcolor = "white"];
+  __locale_mb_cur_max_0 [ label = "__locale_mb_cur_max|PROG: 6|STACK: 0" fillcolor = "white"];
+  setlocale_0 [ label = "setlocale|PROG: 76|STACK: 32" fillcolor = "white"];
+  setlocale_0 -> strcmp_0;
+
+  _fstat_r_0 [ label = "_fstat_r|PROG: 58|STACK: 32" fillcolor = "white"];
+  _fstat_r_0 -> _fstat_0;
+
+  _isatty_r_0 [ label = "_isatty_r|PROG: 54|STACK: 32" fillcolor = "white"];
+  _isatty_r_0 -> _isatty_0;
+
+  __swhatbuf_r_0 [ label = "__swhatbuf_r|PROG: 138|STACK: 144" fillcolor = "white"];
+  __swhatbuf_r_0 -> _fstat_r_0;
+
+  _mbtowc_r_0 [ label = "_mbtowc_r|PROG: 6|STACK: 0" fillcolor = "white"];
+  __ascii_mbtowc_0 [ label = "__ascii_mbtowc|PROG: 64|STACK: 16" fillcolor = "white"];
+  _calloc_r_0 [ label = "_calloc_r|PROG: 172|STACK: 16" fillcolor = "white"];
+  _calloc_r_0 -> _malloc_r_0;
+  _calloc_r_0 -> memset_0;
+  _calloc_r_0 -> __errno_0;
+
+  __multadd_0 [ label = "__multadd|PROG: 230|STACK: 48" fillcolor = "white"];
+  __multadd_0 -> _Balloc_0;
+  __multadd_0 -> memcpy_0;
+  __multadd_0 -> __assert_func_0;
+
+  memcpy_0 [ label = "memcpy|PROG: 232|STACK: 0" fillcolor = "white"];
+  __s2b_0 [ label = "__s2b|PROG: 230|STACK: 64" fillcolor = "white"];
+  __s2b_0 -> _Balloc_0;
+  __s2b_0 -> __multadd_0;
+  __s2b_0 -> __assert_func_0;
+
+  __hi0bits_0 [ label = "__hi0bits|PROG: 78|STACK: 0" fillcolor = "white"];
+  __lo0bits_0 [ label = "__lo0bits|PROG: 152|STACK: 0" fillcolor = "white"];
+  __i2b_0 [ label = "__i2b|PROG: 104|STACK: 32" fillcolor = "white"];
+  __i2b_0 -> _calloc_r_0;
+  __i2b_0 -> __assert_func_0;
+
+  __multiply_0 [ label = "__multiply|PROG: 422|STACK: 48" fillcolor = "white"];
+  __multiply_0 -> _Balloc_0;
+  __multiply_0 -> __assert_func_0;
+
+  __pow5mult_0 [ label = "__pow5mult|PROG: 216|STACK: 48" fillcolor = "white"];
+  __pow5mult_0 -> __multiply_0;
+  __pow5mult_0 -> __multadd_0;
+  __pow5mult_0 -> _Balloc_0;
+  __pow5mult_0 -> __assert_func_0;
+
+  __lshift_0 [ label = "__lshift|PROG: 300|STACK: 64" fillcolor = "white"];
+  __lshift_0 -> _Balloc_0;
+  __lshift_0 -> __assert_func_0;
+
+  __mcmp_0 [ label = "__mcmp|PROG: 56|STACK: 0" fillcolor = "white"];
+  __mdiff_0 [ label = "__mdiff|PROG: 426|STACK: 32" fillcolor = "white"];
+  __mdiff_0 -> _Balloc_0;
+  __mdiff_0 -> __assert_func_0;
+
+  __ulp_0 [ label = "__ulp|PROG: 112|STACK: 0" fillcolor = "white"];
+  __b2d_0 [ label = "__b2d|PROG: 240|STACK: 48" fillcolor = "white"];
+  __b2d_0 -> __hi0bits_0;
+
+  __d2b_0 [ label = "__d2b|PROG: 240|STACK: 64" fillcolor = "white"];
+  __d2b_0 -> _Balloc_0;
+  __d2b_0 -> __lo0bits_0;
+  __d2b_0 -> __hi0bits_0;
+  __d2b_0 -> __assert_func_0;
+
+  __ratio_0 [ label = "__ratio|PROG: 134|STACK: 48" fillcolor = "white"];
+  __ratio_0 -> __b2d_0;
+
+  _mprec_log10_0 [ label = "_mprec_log10|PROG: 38|STACK: 0" fillcolor = "white"];
+  __copybits_0 [ label = "__copybits|PROG: 72|STACK: 0" fillcolor = "white"];
+  __any_on_0 [ label = "__any_on|PROG: 72|STACK: 0" fillcolor = "white"];
+  _sbrk_0 [ label = "_sbrk|PROG: 80|STACK: 16" fillcolor = "white"];
+  _sbrk_0 -> __errno_0;
+
+  _sprintf_r_0 [ label = "_sprintf_r|PROG: 66|STACK: 256" fillcolor = "white"];
+  _sprintf_r_0 -> _svfprintf_r_0;
+
+  _svfprintf_r_0 [ label = "_svfprintf_r|PROG: 6732|STACK: 640" fillcolor = "white"];
+  _svfprintf_r_0 -> _localeconv_r_0;
+  _svfprintf_r_0 -> strlen_0;
+  _svfprintf_r_0 -> _free_r_0;
+  _svfprintf_r_0 -> __ssprint_r_0;
+  _svfprintf_r_0 -> __extenddftf2_0;
+  _svfprintf_r_0 -> _ldcheck_0;
+  _svfprintf_r_0 -> __eqtf2_0;
+  _svfprintf_r_0 -> memchr_0;
+  _svfprintf_r_0 -> _malloc_r_0;
+  _svfprintf_r_0 -> strncpy_0;
+  _svfprintf_r_0 -> __letf2_0;
+  _svfprintf_r_0 -> _ldtoa_r_0;
+  _svfprintf_r_0 -> __trunctfdf2_0;
+  _svfprintf_r_0 -> frexp_0;
+  _svfprintf_r_0 -> __multf3_0;
+  _svfprintf_r_0 -> __fixtfsi_0;
+  _svfprintf_r_0 -> __floatsitf_0;
+  _svfprintf_r_0 -> __subtf3_0;
+  _svfprintf_r_0 -> __getf2_0;
+
+  __sread_0 [ label = "__sread|PROG: 56|STACK: 16" fillcolor = "white"];
+  __sread_0 -> _read_r_0;
+
+  _read_r_0 [ label = "_read_r|PROG: 60|STACK: 32" fillcolor = "white"];
+  _read_r_0 -> _read_0;
+
+  __seofread_0 [ label = "__seofread|PROG: 4|STACK: 0" fillcolor = "white"];
+  __swrite_0 [ label = "__swrite|PROG: 84|STACK: 48" fillcolor = "white"];
+  __swrite_0 -> _write_r_0;
+  __swrite_0 -> _lseek_r_0;
+
+  _write_r_0 [ label = "_write_r|PROG: 60|STACK: 32" fillcolor = "white"];
+  _write_r_0 -> _write_0;
+
+  _lseek_r_0 [ label = "_lseek_r|PROG: 60|STACK: 32" fillcolor = "white"];
+  _lseek_r_0 -> _lseek_0;
+
+  __sseek_0 [ label = "__sseek|PROG: 66|STACK: 16" fillcolor = "white"];
+  __sseek_0 -> _lseek_r_0;
+
+  __sclose_0 [ label = "__sclose|PROG: 8|STACK: 0" fillcolor = "white"];
+  __sclose_0 -> _close_r_0;
+
+  _close_r_0 [ label = "_close_r|PROG: 54|STACK: 32" fillcolor = "white"];
+  _close_r_0 -> _close_0;
+
+  __ssprint_r_0 [ label = "__ssprint_r|PROG: 342|STACK: 80" fillcolor = "white"];
+  __ssprint_r_0 -> memmove_0;
+  __ssprint_r_0 -> _malloc_r_0;
+  __ssprint_r_0 -> memcpy_0;
+  __ssprint_r_0 -> _realloc_r_0;
+  __ssprint_r_0 -> _free_r_0;
+
+  __sprint_r.part.0_0 [ label = "__sprint_r.part.0|PROG: 164|STACK: 80" fillcolor = "white"];
+  __sprint_r.part.0_0 -> _fputwc_r_0;
+  __sprint_r.part.0_0 -> __sfvwrite_r_0;
+
+  _fputwc_r_0 [ label = "_fputwc_r|PROG: 36|STACK: 0" fillcolor = "white"];
+  _fputwc_r_0 -> __fputwc_0;
+
+  __sfvwrite_r_0 [ label = "__sfvwrite_r|PROG: 814|STACK: 96" fillcolor = "white"];
+  __sfvwrite_r_0 -> __unknown___0;
+  __sfvwrite_r_0 -> __swsetup_r_0;
+  __sfvwrite_r_0 -> memmove_0;
+  __sfvwrite_r_0 -> _fflush_r_0;
+  __sfvwrite_r_0 -> memchr_0;
+  __sfvwrite_r_0 -> _malloc_r_0;
+  __sfvwrite_r_0 -> memcpy_0;
+  __sfvwrite_r_0 -> _realloc_r_0;
+  __sfvwrite_r_0 -> _free_r_0;
+
+  __sprint_r_part_0_0 [ label = "__sprint_r_part_0|PROG: 0|STACK: 0" fillcolor = "lightgray"];
+  _vfiprintf_r_0 [ label = "_vfiprintf_r|PROG: 3136|STACK: 464" fillcolor = "white"];
+  _vfiprintf_r_0 -> __sprint_r_part_0_0;
+  _vfiprintf_r_0 -> __swsetup_r_0;
+  _vfiprintf_r_0 -> __sbprintf_0;
+  _vfiprintf_r_0 -> __sinit_0;
+  _vfiprintf_r_0 -> memchr_0;
+  _vfiprintf_r_0 -> _localeconv_r_0;
+  _vfiprintf_r_0 -> strlen_0;
+  _vfiprintf_r_0 -> strncpy_0;
+
+  vfiprintf_0 [ label = "vfiprintf|PROG: 16|STACK: 0" fillcolor = "white"];
+  vfiprintf_0 -> _vfiprintf_r_0;
+
+  _wctomb_r_0 [ label = "_wctomb_r|PROG: 6|STACK: 0" fillcolor = "white"];
+  __ascii_wctomb_0 [ label = "__ascii_wctomb|PROG: 36|STACK: 0" fillcolor = "white"];
+  _write_0 [ label = "_write|PROG: 44|STACK: 16" fillcolor = "white"];
+  _write_0 -> __errno_0;
+
+  fiprintf_0 [ label = "fiprintf|PROG: 44|STACK: 80" fillcolor = "white"];
+  fiprintf_0 -> _vfiprintf_r_0;
+
+  abort_0 [ label = "abort|PROG: 16|STACK: 16" fillcolor = "white"];
+  abort_0 -> raise_0;
+  abort_0 -> _exit_0;
+
+  __assert_0 [ label = "__assert|PROG: 12|STACK: 16" fillcolor = "white"];
+  __assert_0 -> __assert_func_0;
+
+  __register_exitproc_0 [ label = "__register_exitproc|PROG: 118|STACK: 0" fillcolor = "white"];
+  __errno_0 [ label = "__errno|PROG: 6|STACK: 0" fillcolor = "white"];
+  _close_0 [ label = "_close|PROG: 44|STACK: 16" fillcolor = "white"];
+  _close_0 -> __errno_0;
+
+  _fclose_r_0 [ label = "_fclose_r|PROG: 174|STACK: 32" fillcolor = "white"];
+  _fclose_r_0 -> __sflush_r_0;
+  _fclose_r_0 -> __unknown___0;
+  _fclose_r_0 -> _free_r_0;
+  _fclose_r_0 -> __sfp_lock_acquire_0;
+  _fclose_r_0 -> __sfp_lock_release_0;
+  _fclose_r_0 -> __sinit_0;
+
+  fclose_0 [ label = "fclose|PROG: 10|STACK: 0" fillcolor = "white"];
+  fclose_0 -> _fclose_r_0;
+
+  _fiprintf_r_0 [ label = "_fiprintf_r|PROG: 32|STACK: 80" fillcolor = "white"];
+  _fiprintf_r_0 -> _vfiprintf_r_0;
+
+  __fputwc_0 [ label = "__fputwc|PROG: 198|STACK: 80" fillcolor = "white"];
+  __fputwc_0 -> __locale_mb_cur_max_0;
+  __fputwc_0 -> _wcrtomb_r_0;
+  __fputwc_0 -> __swbuf_r_0;
+
+  _wcrtomb_r_0 [ label = "_wcrtomb_r|PROG: 68|STACK: 48" fillcolor = "white"];
+  _wcrtomb_r_0 -> __unknown___0;
+
+  __swbuf_r_0 [ label = "__swbuf_r|PROG: 248|STACK: 48" fillcolor = "white"];
+  __swbuf_r_0 -> __swsetup_r_0;
+  __swbuf_r_0 -> _fflush_r_0;
+  __swbuf_r_0 -> __sinit_0;
+
+  fputwc_0 [ label = "fputwc|PROG: 80|STACK: 32" fillcolor = "white"];
+  fputwc_0 -> __fputwc_0;
+  fputwc_0 -> __sinit_0;
+
+  _fstat_0 [ label = "_fstat|PROG: 64|STACK: 160" fillcolor = "white"];
+  _fstat_0 -> _conv_stat_0;
+  _fstat_0 -> __errno_0;
+
+  memmove_0 [ label = "memmove|PROG: 214|STACK: 0" fillcolor = "white"];
+  _realloc_r_0 [ label = "_realloc_r|PROG: 1000|STACK: 80" fillcolor = "white"];
+  _realloc_r_0 -> __malloc_lock_0;
+  _realloc_r_0 -> _malloc_r_0;
+  _realloc_r_0 -> _free_r_0;
+  _realloc_r_0 -> __malloc_unlock_0;
+  _realloc_r_0 -> memmove_0;
+
+  _isatty_0 [ label = "_isatty|PROG: 38|STACK: 128" fillcolor = "white"];
+  _isatty_0 -> _fstat_0;
+
+  _lseek_0 [ label = "_lseek|PROG: 44|STACK: 16" fillcolor = "white"];
+  _lseek_0 -> __errno_0;
+
+  _read_0 [ label = "_read|PROG: 44|STACK: 16" fillcolor = "white"];
+  _read_0 -> __errno_0;
+
+  cleanup_glue_0 [ label = "cleanup_glue|PROG: 98|STACK: 48" fillcolor = "white"];
+  cleanup_glue_0 -> cleanup_glue_0;
+  cleanup_glue_0 -> _free_r_0;
+
+  _reclaim_reent_0 [ label = "_reclaim_reent|PROG: 176|STACK: 48" fillcolor = "white"];
+  _reclaim_reent_0 -> _free_r_0;
+  _reclaim_reent_0 -> __unknown___0;
+  _reclaim_reent_0 -> cleanup_glue_0;
+
+  _svfiprintf_r_0 [ label = "_svfiprintf_r|PROG: 2722|STACK: 480" fillcolor = "white"];
+  _svfiprintf_r_0 -> __ssprint_r_0;
+  _svfiprintf_r_0 -> memchr_0;
+  _svfiprintf_r_0 -> _localeconv_r_0;
+  _svfiprintf_r_0 -> strlen_0;
+  _svfiprintf_r_0 -> strncpy_0;
+  _svfiprintf_r_0 -> _malloc_r_0;
+
+  __swbuf_0 [ label = "__swbuf|PROG: 14|STACK: 0" fillcolor = "white"];
+  __swbuf_0 -> __swbuf_r_0;
+
+  wcrtomb_0 [ label = "wcrtomb|PROG: 82|STACK: 48" fillcolor = "white"];
+  wcrtomb_0 -> __unknown___0;
+
+  raise_0 [ label = "raise|PROG: 124|STACK: 32" fillcolor = "white"];
+  raise_0 -> __unknown___0;
+  raise_0 -> _getpid_r_0;
+  raise_0 -> _kill_r_0;
+
+  _init_signal_r_0 [ label = "_init_signal_r|PROG: 60|STACK: 16" fillcolor = "white"];
+  _init_signal_r_0 -> _malloc_r_0;
+
+  _signal_r_0 [ label = "_signal_r|PROG: 100|STACK: 48" fillcolor = "white"];
+  _signal_r_0 -> _malloc_r_0;
+
+  _raise_r_0 [ label = "_raise_r|PROG: 124|STACK: 32" fillcolor = "white"];
+  _raise_r_0 -> __unknown___0;
+  _raise_r_0 -> _getpid_r_0;
+  _raise_r_0 -> _kill_r_0;
+
+  _getpid_r_0 [ label = "_getpid_r|PROG: 2|STACK: 0" fillcolor = "white"];
+  _getpid_r_0 -> _getpid_0;
+
+  _kill_r_0 [ label = "_kill_r|PROG: 58|STACK: 32" fillcolor = "white"];
+  _kill_r_0 -> _kill_0;
+
+  __sigtramp_r_0 [ label = "__sigtramp_r|PROG: 136|STACK: 32" fillcolor = "white"];
+  __sigtramp_r_0 -> __unknown___0;
+  __sigtramp_r_0 -> _malloc_r_0;
+
+  signal_0 [ label = "signal|PROG: 110|STACK: 32" fillcolor = "white"];
+  signal_0 -> _malloc_r_0;
+
+  _init_signal_0 [ label = "_init_signal|PROG: 62|STACK: 16" fillcolor = "white"];
+  _init_signal_0 -> _malloc_r_0;
+
+  __sigtramp_0 [ label = "__sigtramp|PROG: 136|STACK: 32" fillcolor = "white"];
+  __sigtramp_0 -> __unknown___0;
+  __sigtramp_0 -> _malloc_r_0;
+
+  _kill_0 [ label = "_kill|PROG: 20|STACK: 16" fillcolor = "white"];
+  _kill_0 -> __errno_0;
+
+  _getpid_0 [ label = "_getpid|PROG: 4|STACK: 0" fillcolor = "white"];
+  _conv_stat_0 [ label = "_conv_stat|PROG: 90|STACK: 0" fillcolor = "white"];
+  __clzdi2_0 [ label = "__clzdi2|PROG: 44|STACK: 0" fillcolor = "white"];
+
+}
